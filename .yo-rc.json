@@ -1,0 +1,11 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.6.0",
+    "libraryName": "forms-engine",
+    "libraryId": "5dc01a31-7eda-47f1-8da5-09b0e6c80b79",
+    "packageManager": "npm",
+    "componentType": "webpart"
+  }
+}

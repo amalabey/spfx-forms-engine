@@ -283,18 +283,24 @@
                         "type": "office-ui-fabric-react/lib/Dropdown",
                         "name": "role",
                         "items": [],
+                        "dataSource": "Scheduling Request Resources",
+                        "dataMember": "Role",
                         "placeholder": "Select Role",
                         "required": true
                     },
                     {
                         "type": "office-ui-fabric-react/lib/TextField",
                         "name": "numberOfResources",
+                        "dataSource": "Scheduling Request Resources",
+                        "dataMember": "Number Of Resources",
                         "placeholder": "Number of Resources",
                         "required": true
                     },
                     {
                         "type": "office-ui-fabric-react/lib/TextField",
                         "name": "resourceRate",
+                        "dataSource": "Scheduling Request Resources",
+                        "dataMember": "Rate",
                         "placeholder": "Enter the rate",
                         "required": true
                     }

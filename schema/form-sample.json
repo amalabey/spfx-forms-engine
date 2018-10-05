@@ -1,0 +1,305 @@
+{
+    "newform":{
+        "controls":[
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/Dropdown",
+                                "name": "state",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "State",
+                                "label": "State",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "state",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Title",
+                                "label": "Title",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "clientName",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Client Name",
+                                "label": "Client Name",
+                                "description": "Try to use the client name the same way it's entered.",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "projectName",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Project Name",
+                                "label": "Project Name",
+                                "description": "Project name should be as per the Statement of Works.",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "task",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Task",
+                                "label": "Task",
+                                "description": "As created in tenrox.",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "rate",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Rate",
+                                "label": "Rate p/hr ex GST",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/DatePicker",
+                                "name": "startDate",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Start Date",
+                                "label": "Start Date",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/DatePicker",
+                                "name": "endDate",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "End Date",
+                                "label": "End Date",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "days",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Days",
+                                "label": "Days to be Scheduled",
+                                "description": "If we're not just scheduling the entire contiguous period, describe what you expect here. For example, 'Only Mondays and Wednesdays'.",
+                                "required": false,
+                                "multiline": true,
+                                "resizable": false
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "existingScheduling",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Existing Scheduling",
+                                "label": "Existing Scheduling",
+                                "description": "If there's existing scheduling on any of these days, what should we do with it? Delete it, move it, swap it with something else?",
+                                "required": false,
+                                "multiline": true,
+                                "resizable": false
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/Dropdown",
+                                "name": "status",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Status",
+                                "label": "Status",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "office-ui-fabric-react/lib/TextField",
+                                "name": "schedulerNotes",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Scheduler Notes",
+                                "label": "Scheduler Notes",
+                                "description": "Used by the scheduler, to make internal notes about why something might be blocked, difficult to process, etc.",
+                                "required": false,
+                                "multiline": true,
+                                "resizable": false
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type": "office-ui-fabric-react/lib/DetailsList",
+                "name": "resources",
+                "newAction": true,
+                "editAction": true,
+                "deleteAction": true,
+                "columns": [
+                    {
+                        "type": "office-ui-fabric-react/lib/Dropdown",
+                        "name": "department",
+                        "items":["App Dev", "D & A", "I & D"],
+                        "placeholder": "Select Department",
+                        "required": true
+                    },
+                    {
+                        "type": "office-ui-fabric-react/lib/Dropdown",
+                        "name": "role",
+                        "items": [],
+                        "placeholder": "Select Role",
+                        "required": true
+                    },
+                    {
+                        "type": "office-ui-fabric-react/lib/TextField",
+                        "name": "numberOfResources",
+                        "placeholder": "Number of Resources",
+                        "required": true
+                    },
+                    {
+                        "type": "office-ui-fabric-react/lib/TextField",
+                        "name": "resourceRate",
+                        "placeholder": "Enter the rate",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    }
+}

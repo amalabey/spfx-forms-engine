@@ -3,5 +3,5 @@ export default interface IField {
     fieldInternalName: string;
     fieldType: string;
     fieldValue: any;
-    options: [{value: string, text: string}];
+    options: [{key: string, text: string}];
 }

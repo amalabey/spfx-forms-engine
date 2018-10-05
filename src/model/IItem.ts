@@ -1,5 +1,5 @@
-import IFieldValue from "./IField";
+import IField from "./IField";
 
 export default interface IItem {
-    fields: { [index: string] : IFieldValue };
+    fields: { [index: string] : IField };
 }

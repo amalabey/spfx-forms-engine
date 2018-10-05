@@ -1,7 +1,15 @@
+export enum FieldMode {
+    NEW,
+    EDIT,
+    VIEW,
+    LIST
+}
+
 export default interface IField {
-    fieldDisplayName: string;
-    fieldInternalName: string;
-    fieldType: string;
-    fieldValue: any;
+    displayName: string;
+    internalName: string;
+    type: string;
+    mode: FieldMode;
+    value: any;
     options: [{key: string, text: string}];
 }

@@ -12,7 +12,7 @@ export interface ITextFormFieldProps extends IFieldProps {
 export default class TextFormField extends React.Component<ITextFormFieldProps, any> {
     private changeState(newValue: string): void {
         if(this.props.onFieldValueChanged){
-            this.props.onFieldValueChanged(assign({}, this.props, { fieldValue: newValue } as IField));
+            this.props.onFieldValueChanged(assign({}, this.props, { value: newValue } as IField));
         }
     }
 

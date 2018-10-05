@@ -1,7 +1,6 @@
 import * as React from "react";
 import { assign } from 'lodash';
 import { Dropdown, IDropdown, DropdownMenuItemType, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { BaseComponent, createRef } from 'office-ui-fabric-react/lib/Utilities';
 
 import { IFieldProps } from "./IFieldProps";
 import IField from "../../model/IField";
@@ -23,6 +22,7 @@ export default class DropDownField extends React.Component<IDropDownFieldProps, 
                 placeHolder={this.props.placeholder}
                 label={this.props.label}
                 id={this.props.name}
+                required={this.props.required}
                 options={this.props.field.options}
                 onChange={this.changeState.bind(this)}
                 />

@@ -1,17 +1,17 @@
 {
     "newform":{
-        "controls":[
+        "childControls":[
             {
                 "type":"Row",
                 "name": "row1",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column1",
                         "large": 3,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "DropDownField",
                                 "name": "state",
@@ -27,14 +27,14 @@
             {
                 "type":"Row",
                 "name": "row2",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column2",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "state",
@@ -50,14 +50,14 @@
             {
                 "type":"Row",
                 "name": "row3",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column3",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "clientName",
@@ -74,14 +74,14 @@
             {
                 "type":"Row",
                 "name": "row4",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "row4",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "projectName",
@@ -98,14 +98,14 @@
             {
                 "type":"Row",
                 "name": "row5",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column5",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "task",
@@ -122,14 +122,14 @@
             {
                 "type":"Row",
                 "name": "row6",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column6",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "rate",
@@ -145,14 +145,14 @@
             {
                 "type":"Row",
                 "name": "row7",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column7",
                         "large": 6,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "DateFormField",
                                 "name": "startDate",
@@ -168,14 +168,14 @@
             {
                 "type":"Row",
                 "name": "row8",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "row8",
                         "large": 6,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "DateFormField",
                                 "name": "endDate",
@@ -191,14 +191,14 @@
             {
                 "type":"Row",
                 "name": "row9",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column9",
                         "large": 3,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "days",
@@ -217,14 +217,14 @@
             {
                 "type":"Row",
                 "name": "row10",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column10",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "existingScheduling",
@@ -243,14 +243,14 @@
             {
                 "type":"Row",
                 "name": "row11",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column11",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "DropDownField",
                                 "name": "status",
@@ -266,14 +266,14 @@
             {
                 "type":"Row",
                 "name": "row12",
-                "controls":[
+                "childControls":[
                     {
                         "type":"Column",
                         "name": "column12",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
-                        "controls": [
+                        "childControls": [
                             {
                                 "type": "TextFormField",
                                 "name": "schedulerNotes",

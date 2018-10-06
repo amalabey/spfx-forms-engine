@@ -5,7 +5,7 @@ export interface IFormElementMetadata {
     name: string;
     dataSource?: string;
     dataMember?: string;
-    controls?: any[];
+    childControls?: any[];
     columns?: any[];
 }
 

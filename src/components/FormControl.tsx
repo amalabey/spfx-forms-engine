@@ -4,7 +4,7 @@ import IFormFieldFactory, {IFormElementMetadata} from "../services/IFormFieldFac
 import { ThemeSettingName } from "@uifabric/styling/lib";
 
 export interface IFormControlProps extends IFormElementMetadata {
-    data: IFieldData;
+    fieldData: IFieldData;
     factory: IFormFieldFactory;
     onFieldValueChanged(newFieldValue: IFieldData): void;
 }
@@ -16,8 +16,8 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
         constructor(props){
             super(props);
             
-            if(this.props.controls && this.props.controls.length > 0){
-                this.childControls = this.props.controls.map((childSchema) => {
+            if(this.props.childControls && this.props.childControls.length > 0){
+                this.childControls = this.props.childControls.map((childSchema) => {
                     return this.props.factory.createControl(childSchema, 0, this.onChildFieldValueChanged);
                 });
             }
@@ -46,9 +46,9 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
                 name,
                 dataSource,
                 dataMember,
-                controls,
+                childControls,
                 columns, 
-                data, 
+                fieldData, 
                 factory,
                 onFieldValueChanged, 
                 ...props } = this.props as IFormControlProps;

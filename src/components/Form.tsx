@@ -35,10 +35,9 @@ export class Form extends React.Component<IFormProps, IFormState> {
 
         const childrenSchema = this.props.schema[this.props.formName];
 
-        if(childrenSchema.controls && childrenSchema.controls.length > 0){
-            this.childControls = childrenSchema.controls.map((childSchema) => {
+        if(childrenSchema.childControls && childrenSchema.childControls.length > 0){
+            this.childControls = childrenSchema.childControls.map((childSchema) => {
                 return this.factory.createControl(childSchema, 0, null);
-                //return <h4>testing</h4>;
             });
         }
     }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Label } from 'office-ui-fabric-react/lib/Label';
+import { TextField, ITextFieldProps } from 'office-ui-fabric-react/lib/TextField';
 
 import IFieldData, { FieldValueType } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
@@ -47,7 +48,7 @@ export default class FormFieldFactory implements IFormFieldFactory {
     public createControl(schema: any, index: number, onControlValueChanged: (newFieldValue: IFieldData) => void) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         const dataBindingProps = {
-            data: this.getFieldData(metadata.dataSource, metadata.dataMember, index), 
+            fieldData: this.getFieldData(metadata.dataSource, metadata.dataMember, index), 
             factory: this, 
             onFieldValueChanged: (newFieldValue: IFieldData) => { 
                 if(onControlValueChanged){
@@ -66,7 +67,7 @@ export default class FormFieldFactory implements IFormFieldFactory {
                 return <ColumnElement {...dataBindingProps} {...metadata } />;
 
             case FormFieldTypes.TextFormField:
-                const TextFieldElement = databoundFormControl(TextFormField);
+                const TextFieldElement = databoundFormControl(TextField);
                 return <TextFieldElement {...dataBindingProps} {...metadata } />;
             
             case FormFieldTypes.DropDownField:

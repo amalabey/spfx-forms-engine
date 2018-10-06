@@ -1,6 +1,6 @@
 import * as React from "react";
 import { assign } from 'lodash';
-import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
+import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
 import { IFieldProps } from "./IFieldProps";
 import IFieldData from "../../model/IFieldData";

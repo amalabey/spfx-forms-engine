@@ -37,13 +37,13 @@ export class Form extends React.Component<IFormProps, IFormState> {
 
         if(childrenSchema.childControls && childrenSchema.childControls.length > 0){
             this.childControls = childrenSchema.childControls.map((childSchema) => {
-                return this.factory.createControl(childSchema, 0, null);
+                return this.factory.createControl(childSchema, 0, this.onChildFieldValueChanged.bind(this));
             });
         }
     }
 
     public onChildFieldValueChanged(newFieldValue: IFieldData): void {
-        console.log("Field value changed");
+        console.log("Field value changed :"+newFieldValue.value);
     }
 
     public render(): JSX.Element {

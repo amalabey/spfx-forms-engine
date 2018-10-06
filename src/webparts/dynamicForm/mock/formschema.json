@@ -37,7 +37,7 @@
                         "childControls": [
                             {
                                 "type": "TextFormField",
-                                "name": "state",
+                                "name": "title",
                                 "dataSource": "Scheduling Requests",
                                 "dataMember": "Title",
                                 "label": "Title",

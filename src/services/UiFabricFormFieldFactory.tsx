@@ -1,10 +1,10 @@
 import * as React from "react";
-import { Label } from 'office-ui-fabric-react/lib/Label';
-import { TextField, ITextFieldProps } from 'office-ui-fabric-react/lib/TextField';
-import { Dropdown, IDropdown, DropdownMenuItemType, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { DatePicker, DayOfWeek, IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
+import { Label } from 'office-ui-fabric-react/lib/components/Label';
+import { TextField, ITextFieldProps } from 'office-ui-fabric-react/lib/components/TextField';
+import { Dropdown, IDropdown, DropdownMenuItemType, IDropdownOption } from 'office-ui-fabric-react/lib/components/Dropdown';
+import { DatePicker, DayOfWeek, IDatePickerStrings } from 'office-ui-fabric-react/lib/components/DatePicker';
 
-import IFieldData, { FieldValueType } from "../model/IFieldData";
+import IFieldData, { FieldValueType, FieldMode } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
 import IFormData from "../model/IFormData";
 import { strEnum } from "../util";
@@ -44,14 +44,14 @@ export default class FormFieldFactory implements IFormFieldFactory {
         return null;
     }
 
-    public createControl(schema: any, index: number, onControlValueChanged: (newFieldValue: IFieldData) => void) {
+    public createControl(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         const dataBindingProps = {
             fieldData: this.getFieldData(metadata.dataSource, metadata.dataMember, index), 
             factory: this, 
             onFieldValueChanged: (newFieldValue: IFieldData) => { 
-                if(onControlValueChanged){
-                    onControlValueChanged(newFieldValue);
+                if(onParentControlValueChanged){
+                    onParentControlValueChanged(newFieldValue);
                 }
             }
         };
@@ -67,7 +67,23 @@ export default class FormFieldFactory implements IFormFieldFactory {
 
             case FormFieldTypes.TextFormField:
                 const TextFieldElement = databoundFormControl(TextField);
-                return <TextFieldElement {...dataBindingProps} {...metadata } />;
+                return <TextFieldElement 
+                    {...dataBindingProps} 
+                    {...metadata }
+                    onChanged={(newValue: string) => {
+                        if(onParentControlValueChanged){
+                            let fieldData = dataBindingProps.fieldData || {
+                                displayName: metadata.dataMember,
+                                internalName: metadata.dataMember,
+                                type: "Text",
+                                mode: FieldMode.NEW,
+                                value: newValue
+                            };
+                            fieldData.value = newValue;
+                            onParentControlValueChanged(fieldData);
+                        }
+                    }}
+                    />;
             
             case FormFieldTypes.DropDownField:
                 const DropdownFieldElement = databoundFormControl(Dropdown);
@@ -82,5 +98,9 @@ export default class FormFieldFactory implements IFormFieldFactory {
                 return <ErrorLabel {...dataBindingProps} {...metadata }>Unsupported form field type</ErrorLabel>;
 
         }
+    }
+
+    private textFieldChanges(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newVal: string): void {
+
     }
 }

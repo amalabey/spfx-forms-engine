@@ -18,7 +18,7 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
             
             if(this.props.childControls && this.props.childControls.length > 0){
                 this.childControls = this.props.childControls.map((childSchema) => {
-                    return this.props.factory.createControl(childSchema, 0, this.onChildFieldValueChanged);
+                    return this.props.factory.createControl(childSchema, 0, this.onChildFieldValueChanged.bind(this));
                 });
             }
         }

@@ -1,13 +1,12 @@
 import { IFormElementProps } from "./IFormElementProps";
-import IField from "../../model/IField";
+import IFieldData from "../../model/IFieldData";
 
 export interface IFieldProps extends IFormElementProps {
     css?: string;
-    name: string;
+    name?: string;
     dataSource?: string;
     dataMember?: string;
-    required: boolean;
+    required?: boolean;
     label?: string;
-    field: IField;
-    onFieldValueChanged?(newFieldValue: IField): void;
+    onFieldValueChanged?(newFieldValue: IFieldData): void;
 }

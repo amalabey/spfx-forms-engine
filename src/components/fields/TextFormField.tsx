@@ -3,7 +3,7 @@ import { assign } from 'lodash';
 import { TextField, MaskedTextField } from 'office-ui-fabric-react/lib/TextField';
 
 import { IFieldProps } from "./IFieldProps";
-import IField from "../../model/IField";
+import IFieldData from "../../model/IFieldData";
 
 export interface ITextFormFieldProps extends IFieldProps {
     placeholder?: string;
@@ -12,7 +12,7 @@ export interface ITextFormFieldProps extends IFieldProps {
 export default class TextFormField extends React.Component<ITextFormFieldProps, any> {
     private changeState(newValue: string): void {
         if(this.props.onFieldValueChanged){
-            this.props.onFieldValueChanged(assign({}, this.props, { value: newValue } as IField));
+            this.props.onFieldValueChanged(assign({}, this.props, { value: newValue } as IFieldData));
         }
     }
 

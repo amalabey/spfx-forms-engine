@@ -1,7 +1,7 @@
 import * as React from "react";
+import { IFormElementProps } from "./IFormElementProps";
 
-export interface IRowProps {
-    css?: string;
+export interface IRowProps extends IFormElementProps {
 }
 
 export interface IRowState {

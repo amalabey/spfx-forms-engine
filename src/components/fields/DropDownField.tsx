@@ -3,7 +3,7 @@ import { assign } from 'lodash';
 import { Dropdown, IDropdown, DropdownMenuItemType, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
 
 import { IFieldProps } from "./IFieldProps";
-import IField from "../../model/IField";
+import IFieldData from "../../model/IFieldData";
 
 export interface IDropDownFieldProps extends IFieldProps {
     placeholder?: string;
@@ -12,7 +12,7 @@ export interface IDropDownFieldProps extends IFieldProps {
 export default class DropDownField extends React.Component<IDropDownFieldProps, any> {
     private changeState(item: IDropdownOption): void {
         if(this.props.onFieldValueChanged){
-            this.props.onFieldValueChanged(assign({}, this.props, { fieldValue: item.selected } as IField));
+            //this.props.onFieldValueChanged(assign({}, this.props, { fieldValue: item.selected } as IFieldData));
         }
     }
 
@@ -23,7 +23,7 @@ export default class DropDownField extends React.Component<IDropDownFieldProps, 
                 label={this.props.label}
                 id={this.props.name}
                 required={this.props.required}
-                options={this.props.field.options}
+                //options={this.props.field.options}
                 onChange={this.changeState.bind(this)}
                 />
         );

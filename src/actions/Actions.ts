@@ -1,7 +1,7 @@
 import { ActionTypes, Action } from "./ActionTypes";
-import IField from "../model/IField";
+import IFieldData from "../model/IFieldData";
 
-const changeFieldValue = (newFieldValue: IField, detailList: string, rowIndex: number): Action => ({
+const changeFieldValue = (newFieldValue: IFieldData, detailList: string, rowIndex: number): Action => ({
     type: ActionTypes.FIELD_VALUE_CHANGED,
     payload: newFieldValue,
     detailList: detailList,

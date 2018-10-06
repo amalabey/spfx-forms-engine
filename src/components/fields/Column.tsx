@@ -1,9 +1,9 @@
 import * as React from "react";
+import { IFormElementProps } from "./IFormElementProps";
 
 type GridColumnIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
-export interface IColumnProps {
-    css?: string;
+export interface IColumnProps extends IFormElementProps {
     large?: GridColumnIndex;
     medium?: GridColumnIndex;
     small?: GridColumnIndex;

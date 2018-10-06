@@ -9,6 +9,7 @@ import {
   } from 'office-ui-fabric-react/lib/DetailsList';
 
 import IItem from "../../model/IItem";
+import { IFormElementProps } from "./IFormElementProps";
 
 export interface IDataGridColumn {
     name: string;
@@ -25,7 +26,7 @@ export interface IDataGridColumn {
     isPadded?: true;
 }
 
-export interface IDataGridProps {
+export interface IDataGridProps extends IFormElementProps {
     name: string;
     dataSource?: string;
     columns: IDataGridColumn[];

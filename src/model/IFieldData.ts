@@ -5,11 +5,13 @@ export enum FieldMode {
     LIST
 }
 
-export default interface IField {
+export type FieldValueType = string | number | boolean | Date;
+
+export default interface IFieldData {
     displayName: string;
     internalName: string;
     type: string;
     mode: FieldMode;
-    value: any;
+    value: FieldValueType;
     options: [{key: string, text: string}];
 }

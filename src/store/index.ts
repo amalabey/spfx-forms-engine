@@ -2,9 +2,9 @@ import { Store, createStore as reduxCreateStore, compose, applyMiddleware } from
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import formReducer from "../reducers/FormReducers";
-import IForm from "../model/IForm";
+import IFormData from "../model/IFormData";
 
-export function createStore(initialState?: IForm): Store<IForm> {
+export function createStore(initialState?: IFormData): Store<IFormData> {
   const loggerMiddleware = createLogger();
 
   const middlewares = [

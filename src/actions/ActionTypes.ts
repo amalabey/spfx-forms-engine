@@ -1,4 +1,4 @@
-import IField from "../model/IField";
+import IFieldData from "../model/IFieldData";
 
 export enum ActionTypes {
     FIELD_VALUE_CHANGED,
@@ -12,7 +12,7 @@ export enum ActionTypes {
 export type Action = 
     {
         type: ActionTypes.FIELD_VALUE_CHANGED, 
-        payload: IField,
+        payload: IFieldData,
         detailList?: string,
         rowIndex?: number
     };

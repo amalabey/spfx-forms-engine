@@ -19,6 +19,7 @@ export default class DateFormField extends React.Component<IDateFormFieldProps, 
     public render(): JSX.Element {
         return (
             <DatePicker
+                label={this.props.label}
                 firstDayOfWeek={DayOfWeek.Sunday}
                 placeholder={this.props.placeholder}
                 onSelectDate={this.changeState.bind(this)}

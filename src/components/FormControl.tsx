@@ -29,6 +29,16 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
             }
         }
 
+        private renderChildren() {
+            if(this.props.children){
+                return this.props.children;
+            }else if(this.childControls && this.childControls.length > 0){
+                return this.childControls;
+            }else{
+                return null;
+            }
+        }
+
         public render(): JSX.Element {
             // Filter out schema data and leave only the control properties
             const { 
@@ -44,7 +54,7 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
                 ...props } = this.props as IFormControlProps;
             return (
                 <Control {...props} key={name}>
-                    {this.childControls}
+                    {this.renderChildren()}
                 </Control>
             );
         }

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Label } from 'office-ui-fabric-react/lib/Label';
 
 import IFieldData, { FieldValueType } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
@@ -68,9 +69,17 @@ export default class FormFieldFactory implements IFormFieldFactory {
                 const TextFieldElement = databoundFormControl(TextFormField);
                 return <TextFieldElement {...dataBindingProps} {...metadata } />;
             
+            case FormFieldTypes.DropDownField:
+                const DropdownFieldElement = databoundFormControl(DropDownField);
+                return <DropdownFieldElement {...dataBindingProps} {...metadata } />;
+            
+            case FormFieldTypes.DateFormField:
+                const DateFieldElement = databoundFormControl(DateFormField);
+                return <DateFieldElement {...dataBindingProps} {...metadata } />;
+            
             default:
-                const DefaultElement = databoundFormControl(Column);
-                return <DefaultElement {...dataBindingProps} {...metadata } />;
+                const ErrorLabel = databoundFormControl(Label);
+                return <ErrorLabel {...dataBindingProps} {...metadata }>Unsupported form field type</ErrorLabel>;
 
         }
     }

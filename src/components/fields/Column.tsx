@@ -14,7 +14,8 @@ export interface IColumnState {
 
 export default class Column extends React.Component<IColumnProps, IColumnState> {
     public render(): JSX.Element {
-        return (<div className={`ms-Grid-col ${this.props.css?this.props.css:""} ${this.props.large?"ms-lg"+this.props.large:""} ${this.props.medium?"ms-lg"+this.props.medium:""} ${this.props.small?"ms-lg"+this.props.small:""}`}>
+        return (<div className={`ms-Grid-col ${this.props.css?this.props.css:""} ${this.props.large?"ms-lg"+this.props.large:""} ${this.props.medium?"ms-md"+this.props.medium:""} ${this.props.small?"ms-sm"+this.props.small:""}`}>
+                    {this.props.children}
                 </div>);
     }
 }

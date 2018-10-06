@@ -8,12 +8,12 @@
                     {
                         "type":"Column",
                         "name": "column1",
-                        "large": 12,
+                        "large": 3,
                         "medium": 12,
                         "small": 12,
                         "controls": [
                             {
-                                "type": "DropdownField",
+                                "type": "DropDownField",
                                 "name": "state",
                                 "dataSource": "Scheduling Requests",
                                 "dataMember": "State",
@@ -149,7 +149,7 @@
                     {
                         "type":"Column",
                         "name": "column7",
-                        "large": 12,
+                        "large": 6,
                         "medium": 12,
                         "small": 12,
                         "controls": [
@@ -172,7 +172,7 @@
                     {
                         "type":"Column",
                         "name": "row8",
-                        "large": 12,
+                        "large": 6,
                         "medium": 12,
                         "small": 12,
                         "controls": [
@@ -195,7 +195,7 @@
                     {
                         "type":"Column",
                         "name": "column9",
-                        "large": 12,
+                        "large": 3,
                         "medium": 12,
                         "small": 12,
                         "controls": [

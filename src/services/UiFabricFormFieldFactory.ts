@@ -10,7 +10,7 @@ import DateFormField from "../components/fields/DateFormField";
 import IFormFieldFactory, {IFormElementMetadata} from "./IFormFieldFactory";
 import { databoundFormControl } from "../components/FormControl";
 
-const FormFieldTypes = strEnum([
+export const FormFieldTypes = strEnum([
     'Row',
     'Column',
     'TextFormField',
@@ -56,19 +56,16 @@ export default class FormFieldFactory implements IFormFieldFactory {
         switch(metadata.type){
             case FormFieldTypes.Row:
                 return new (databoundFormControl(Row))({...dataBindingProps, ...metadata});
-                break;
 
             case FormFieldTypes.Column:
                 return new (databoundFormControl(Column))({...dataBindingProps, ...metadata});
-                break;
 
             case FormFieldTypes.TextFormField:
                 return new (databoundFormControl(TextFormField))({...dataBindingProps, ...metadata});
-                break;
 
             default:
                 return new (databoundFormControl(Column))({...dataBindingProps, ...metadata});
-                break;
+
         }
     }
 }

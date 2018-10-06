@@ -13,5 +13,5 @@ export default interface IFieldData {
     type: string;
     mode: FieldMode;
     value: FieldValueType;
-    options: [{key: string, text: string}];
+    options?: [{key: string, text: string}];
 }

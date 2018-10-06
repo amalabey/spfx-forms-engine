@@ -1,0 +1,312 @@
+{
+    "newform":{
+        "controls":[
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "DropdownField",
+                                "name": "state",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "State",
+                                "label": "State",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "state",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Title",
+                                "label": "Title",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "clientName",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Client Name",
+                                "label": "Client Name",
+                                "description": "Try to use the client name the same way it's entered.",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "projectName",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Project Name",
+                                "label": "Project Name",
+                                "description": "Project name should be as per the Statement of Works.",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "task",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Task",
+                                "label": "Task",
+                                "description": "As created in tenrox.",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "rate",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Rate",
+                                "label": "Rate p/hr ex GST",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "DateFormField",
+                                "name": "startDate",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Start Date",
+                                "label": "Start Date",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "DateFormField",
+                                "name": "endDate",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "End Date",
+                                "label": "End Date",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "days",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Days",
+                                "label": "Days to be Scheduled",
+                                "description": "If we're not just scheduling the entire contiguous period, describe what you expect here. For example, 'Only Mondays and Wednesdays'.",
+                                "required": false,
+                                "multiline": true,
+                                "resizable": false
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "existingScheduling",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Existing Scheduling",
+                                "label": "Existing Scheduling",
+                                "description": "If there's existing scheduling on any of these days, what should we do with it? Delete it, move it, swap it with something else?",
+                                "required": false,
+                                "multiline": true,
+                                "resizable": false
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "DropDownField",
+                                "name": "status",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Status",
+                                "label": "Status",
+                                "required": true
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type":"row",
+                "controls":[
+                    {
+                        "type":"column",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "controls": [
+                            {
+                                "type": "TextFormField",
+                                "name": "schedulerNotes",
+                                "dataSource": "Scheduling Requests",
+                                "dataMember": "Scheduler Notes",
+                                "label": "Scheduler Notes",
+                                "description": "Used by the scheduler, to make internal notes about why something might be blocked, difficult to process, etc.",
+                                "required": false,
+                                "multiline": true,
+                                "resizable": false
+                            }
+                        ] 
+                    }
+                ]
+            },
+            {
+                "type": "office-ui-fabric-react/lib/DetailsList",
+                "name": "resources",
+				"dataSource": "Scheduling Request Resources",
+                "newAction": true,
+                "editAction": true,
+                "deleteAction": true,
+                "columns": [
+                    {
+                        "type": "DropDownField",
+                        "name": "department",
+                        "items":["App Dev", "D & A", "I & D"],
+                        "placeholder": "Select Department",
+                        "required": true
+                    },
+                    {
+                        "type": "DropDownField",
+                        "name": "role",
+                        "items": [],
+                        "dataSource": "Scheduling Request Resources",
+                        "dataMember": "Role",
+                        "placeholder": "Select Role",
+                        "required": true
+                    },
+                    {
+                        "type": "TextFormField",
+                        "name": "numberOfResources",
+                        "dataSource": "Scheduling Request Resources",
+                        "dataMember": "Number Of Resources",
+                        "placeholder": "Number of Resources",
+                        "required": true
+                    },
+                    {
+                        "type": "TextFormField",
+                        "name": "resourceRate",
+                        "dataSource": "Scheduling Request Resources",
+                        "dataMember": "Rate",
+                        "placeholder": "Enter the rate",
+                        "required": true
+                    }
+                ]
+            }
+        ]
+    }
+}

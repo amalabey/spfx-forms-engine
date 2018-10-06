@@ -1,25 +1,33 @@
 import * as React from 'react';
+import { escape } from '@microsoft/sp-lodash-subset';
+import { Store } from 'redux';
+import { Provider } from 'react-redux';
+
+import { createStore } from "../../../store";
+import IFormData from "../../../model/IFormData";
 import styles from './DynamicForm.module.scss';
 import { IDynamicFormProps } from './IDynamicFormProps';
-import { escape } from '@microsoft/sp-lodash-subset';
+import { ItemMode } from '../../../model/IItemData';
+import { FieldMode } from '../../../model/IFieldData';
+import Form from "../../../components/Form";
+
+import { mockState } from "../mock";
+import { IState } from '../../../store/IState';
 
 export default class DynamicForm extends React.Component<IDynamicFormProps, {}> {
+  private store: Store<IState>;
+
+  constructor(props){
+    super(props);
+    // Sample data
+    this.store = createStore(mockState);
+  }
+
   public render(): React.ReactElement<IDynamicFormProps> {
     return (
-      <div className={ styles.dynamicForm }>
-        <div className={ styles.container }>
-          <div className={ styles.row }>
-            <div className={ styles.column }>
-              <span className={ styles.title }>Welcome to SharePoint!</span>
-              <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Provider store={this.store}>
+        <Form />
+      </Provider>
     );
   }
 }

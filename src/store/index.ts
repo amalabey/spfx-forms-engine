@@ -3,8 +3,9 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import formReducer from "../reducers/FormReducers";
 import IFormData from "../model/IFormData";
+import { IState } from './IState';
 
-export function createStore(initialState?: IFormData): Store<IFormData> {
+export function createStore(initialState?: IState): Store<IState> {
   const loggerMiddleware = createLogger();
 
   const middlewares = [

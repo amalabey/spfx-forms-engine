@@ -24,6 +24,9 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
         }
 
         public onChildFieldValueChanged(newFieldValue: IFieldData): void {
+            if(this.props.onFieldValueChanged){
+                this.props.onFieldValueChanged(newFieldValue);
+            }
         }
 
         public render(): JSX.Element {
@@ -46,3 +49,4 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
             );
         }
     };
+

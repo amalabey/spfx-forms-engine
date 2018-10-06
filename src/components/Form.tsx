@@ -5,6 +5,7 @@ import IFormData from "../model/IFormData";
 import IFieldData from "../model/IFieldData";
 import IFormFieldFactory from "../services/IFormFieldFactory";
 import UiFabricFormFieldFactory from "../services/UiFabricFormFieldFactory";
+import { IState } from "../store/IState";
 
 export interface IFormProps {
     schema: any; // Validated at runtime
@@ -15,13 +16,18 @@ export interface IFormProps {
 export interface IFormState {
 }
 
-const mapStateToProps = (formData: IFormData) => ({
-    dataSource: formData
-});
+const mapStateToProps = (state: IState) => {
+    console.log(state);
+    return {
+        dataSource: state.dataSource,
+        formName: state.formName,
+        schema: state.schema
+    };    
+};
 
 export class Form extends React.Component<IFormProps, IFormState> {
     private factory: IFormFieldFactory;
-    public children: JSX.Element[];
+    public childControls: JSX.Element[];
 
     constructor(props){
         super(props);
@@ -30,8 +36,9 @@ export class Form extends React.Component<IFormProps, IFormState> {
         const childrenSchema = this.props.schema[this.props.formName];
 
         if(childrenSchema.controls && childrenSchema.controls.length > 0){
-            this.children = childrenSchema.controls.map((childSchema) => {
-                return this.factory.createControl(childSchema, 0, this.onChildFieldValueChanged);
+            this.childControls = childrenSchema.controls.map((childSchema) => {
+                return this.factory.createControl(childSchema, 0, null);
+                //return <h4>testing</h4>;
             });
         }
     }
@@ -43,7 +50,7 @@ export class Form extends React.Component<IFormProps, IFormState> {
     public render(): JSX.Element {
         return (
             <div className={"ms-Grid" }>
-                {this.children}
+                {this.childControls}
             </div>
         );
     }

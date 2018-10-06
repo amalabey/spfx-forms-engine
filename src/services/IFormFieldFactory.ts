@@ -2,7 +2,7 @@ import IFieldData, { FieldValueType } from "../model/IFieldData";
 
 export interface IFormElementMetadata {
     type: string;
-    name?: string;
+    name: string;
     dataSource?: string;
     dataMember?: string;
     controls?: any[];

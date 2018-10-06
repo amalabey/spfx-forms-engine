@@ -2,10 +2,12 @@
     "newform":{
         "controls":[
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row1",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column1",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -23,10 +25,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row2",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column2",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -44,10 +48,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row3",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column3",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -66,10 +72,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row4",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "row4",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -88,10 +96,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row5",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column5",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -110,10 +120,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row6",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column6",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -131,10 +143,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row7",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column7",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -152,10 +166,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row8",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "row8",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -173,10 +189,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row9",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column9",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -197,10 +215,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row10",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column10",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -221,10 +241,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row11",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column11",
                         "large": 12,
                         "medium": 12,
                         "small": 12,
@@ -242,10 +264,12 @@
                 ]
             },
             {
-                "type":"row",
+                "type":"Row",
+                "name": "row12",
                 "controls":[
                     {
-                        "type":"column",
+                        "type":"Column",
+                        "name": "column12",
                         "large": 12,
                         "medium": 12,
                         "small": 12,

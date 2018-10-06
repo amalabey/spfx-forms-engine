@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import IFieldData, { FieldValueType } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
 import IFormData from "../model/IFormData";
@@ -55,16 +57,20 @@ export default class FormFieldFactory implements IFormFieldFactory {
 
         switch(metadata.type){
             case FormFieldTypes.Row:
-                return new (databoundFormControl(Row))({...dataBindingProps, ...metadata});
-
+                const RowElement = databoundFormControl(Row);
+                return <RowElement {...dataBindingProps} {...metadata } />;
+        
             case FormFieldTypes.Column:
-                return new (databoundFormControl(Column))({...dataBindingProps, ...metadata});
+                const ColumnElement = databoundFormControl(Column);
+                return <ColumnElement {...dataBindingProps} {...metadata } />;
 
             case FormFieldTypes.TextFormField:
-                return new (databoundFormControl(TextFormField))({...dataBindingProps, ...metadata});
-
+                const TextFieldElement = databoundFormControl(TextFormField);
+                return <TextFieldElement {...dataBindingProps} {...metadata } />;
+            
             default:
-                return new (databoundFormControl(Column))({...dataBindingProps, ...metadata});
+                const DefaultElement = databoundFormControl(Column);
+                return <DefaultElement {...dataBindingProps} {...metadata } />;
 
         }
     }

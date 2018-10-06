@@ -11,13 +11,13 @@ export interface IFormControlProps extends IFormElementMetadata {
 
 export const databoundFormControl = <P extends object>(Control: React.ComponentType<P>) =>
     class FormControl extends React.Component<P & IFormControlProps> {
-        public children: FormControl[];
+        public childControls: FormControl[];
 
         constructor(props){
             super(props);
-
+            
             if(this.props.controls && this.props.controls.length > 0){
-                this.children = this.props.controls.map((childSchema) => {
+                this.childControls = this.props.controls.map((childSchema) => {
                     return this.props.factory.createControl(childSchema, 0, this.onChildFieldValueChanged);
                 });
             }
@@ -43,8 +43,8 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
                 onFieldValueChanged, 
                 ...props } = this.props as IFormControlProps;
             return (
-                <Control {...props}>
-                    {this.children}
+                <Control {...props} key={name}>
+                    {this.childControls}
                 </Control>
             );
         }

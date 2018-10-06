@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import { TextField, ITextFieldProps } from 'office-ui-fabric-react/lib/TextField';
+import { Dropdown, IDropdown, DropdownMenuItemType, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
+import { DatePicker, DayOfWeek, IDatePickerStrings } from 'office-ui-fabric-react/lib/DatePicker';
 
 import IFieldData, { FieldValueType } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
@@ -8,9 +10,6 @@ import IFormData from "../model/IFormData";
 import { strEnum } from "../util";
 import Row from "../components/fields/Row";
 import Column from "../components/fields/Column";
-import TextFormField from "../components/fields/TextFormField";
-import DropDownField from "../components/fields/DropDownField";
-import DateFormField from "../components/fields/DateFormField";
 import IFormFieldFactory, {IFormElementMetadata} from "./IFormFieldFactory";
 import { databoundFormControl } from "../components/FormControl";
 
@@ -71,12 +70,12 @@ export default class FormFieldFactory implements IFormFieldFactory {
                 return <TextFieldElement {...dataBindingProps} {...metadata } />;
             
             case FormFieldTypes.DropDownField:
-                const DropdownFieldElement = databoundFormControl(DropDownField);
+                const DropdownFieldElement = databoundFormControl(Dropdown);
                 return <DropdownFieldElement {...dataBindingProps} {...metadata } />;
             
             case FormFieldTypes.DateFormField:
-                const DateFieldElement = databoundFormControl(DateFormField);
-                return <DateFieldElement {...dataBindingProps} {...metadata } />;
+                const DateFieldElement = databoundFormControl(DatePicker);
+                return <DateFieldElement {...dataBindingProps} {...metadata } firstDayOfWeek={DayOfWeek.Sunday} />;
             
             default:
                 const ErrorLabel = databoundFormControl(Label);

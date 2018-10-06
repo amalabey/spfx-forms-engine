@@ -13,6 +13,6 @@ export type Action =
     {
         type: ActionTypes.FIELD_VALUE_CHANGED, 
         payload: IFieldData,
-        detailList?: string,
+        listName?: string,
         rowIndex?: number
     };

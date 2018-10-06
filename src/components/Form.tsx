@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Dispatch } from "redux";
 import { connect } from 'react-redux';
 
 import IFormData from "../model/IFormData";
@@ -6,11 +7,13 @@ import IFieldData from "../model/IFieldData";
 import IFormFieldFactory from "../services/IFormFieldFactory";
 import UiFabricFormFieldFactory from "../services/UiFabricFormFieldFactory";
 import { IState } from "../store/IState";
+import { changeFieldValue } from "../actions/Actions";
 
 export interface IFormProps {
     schema: any; // Validated at runtime
     formName: string;
     dataSource: IFormData;
+    dispatch: Dispatch;
 }
 
 export interface IFormState {
@@ -44,6 +47,7 @@ export class Form extends React.Component<IFormProps, IFormState> {
 
     public onChildFieldValueChanged(newFieldValue: IFieldData): void {
         console.log("Field value changed :"+newFieldValue.value);
+        this.props.dispatch(changeFieldValue(newFieldValue, "Test", 0));
     }
 
     public render(): JSX.Element {

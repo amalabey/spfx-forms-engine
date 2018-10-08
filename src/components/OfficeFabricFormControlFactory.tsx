@@ -8,11 +8,11 @@ import IFieldData, { FieldValueType, FieldMode } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
 import IFormData from "../model/IFormData";
 import { strEnum } from "../util";
-import Row from "./fields/Row";
-import Column from "./fields/Column";
+import Row from "./controls/Row";
+import Column from "./controls/Column";
 import IFormControlFactory, { IFormElementMetadata, IFormDatabindingMetadata } from "./IFormControlFactory";
 import { databoundFormControl } from "./FormControl";
-import DataGrid from "./fields/DataGrid";
+import DataGrid from "./controls/DataGrid";
 
 export const FormFieldTypes = strEnum([
     'Row',

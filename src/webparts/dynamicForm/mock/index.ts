@@ -8,6 +8,7 @@ import { IState } from "../../../store/IState";
 export const mockFormData = {
     lists: {
       "Scheduling Requests":[{
+        listName: "Scheduling Requests",
         mode: ItemMode.NEW,
         fields:{
           state: {
@@ -27,6 +28,7 @@ export const mockFormData = {
         }
       }],
       "Scheduling Request Resources":[{
+        listName: "Scheduling Requests Resources",
         mode: ItemMode.NEW,
         fields:{
           department: {

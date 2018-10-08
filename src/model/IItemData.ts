@@ -8,6 +8,7 @@ export enum ItemMode {
 }
 
 export default interface IItemData {
+    listName: string;
     mode: ItemMode;
     fields: { [index: string] : IFieldData };
     index?: number;

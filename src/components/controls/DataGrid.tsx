@@ -22,7 +22,7 @@ export interface IDataGridProps extends IFormElementProps {
     editAction: boolean;
     deleteAction: boolean;
     factory: IFormControlFactory;
-    onFieldValueChanged?(newFieldValue: IFieldData): void;
+    onFieldValueChanged?(item: IItemData, newFieldValue: IFieldData): void;
 }
 
 export default class DataGrid extends React.Component<IDataGridProps, any> {
@@ -43,7 +43,7 @@ export default class DataGrid extends React.Component<IDataGridProps, any> {
                 const {minWidth, maxWidth, isRowHeader, isResizable, isSorted,
                     isSortedDescending, sortAscendingAriaLabel, sortDescendingAriaLabel, isPadded,
                     ...fieldProps
-                }  = columnDefinition; // Column definition contains a mix of column metadata and field metadata
+                }  = columnDefinition; // Column definition contains a mix of column metadata and field/control metadata
 
                 const name: string = fieldProps.name;
                 if(!name){
@@ -87,9 +87,10 @@ export default class DataGrid extends React.Component<IDataGridProps, any> {
         return this.props.factory.createControlWithData(controlSchema, index, this.onControlValueChanged.bind(this), item);
     }
 
-    private onControlValueChanged(newFieldValue: IFieldData): void {
+    private onControlValueChanged(item: IItemData, newFieldValue: IFieldData): void {
+        // Just chain the event to parent
         if(this.props.onFieldValueChanged){
-            this.props.onFieldValueChanged(newFieldValue);
+            this.props.onFieldValueChanged(item, newFieldValue);
         }
     }
 }

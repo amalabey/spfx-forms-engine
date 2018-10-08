@@ -8,6 +8,7 @@ import IFormControlFactory from "./IFormControlFactory";
 import UiFabricFormFieldFactory from "./OfficeFabricFormControlFactory";
 import { IState } from "../store/IState";
 import { changeFieldValue } from "../actions/Actions";
+import IItemData from "../model/IItemData";
 
 export interface IFormProps {
     schema: any; // Validated at runtime
@@ -45,9 +46,9 @@ export class Form extends React.Component<IFormProps, IFormState> {
         }
     }
 
-    public onChildFieldValueChanged(newFieldValue: IFieldData): void {
+    public onChildFieldValueChanged(item: IItemData, newFieldValue: IFieldData): void {
         console.log("Field value changed :"+newFieldValue.value);
-        this.props.dispatch(changeFieldValue(newFieldValue, "Test", 0));
+        this.props.dispatch(changeFieldValue(item, newFieldValue, item.listName, 0));
     }
 
     public render(): JSX.Element {

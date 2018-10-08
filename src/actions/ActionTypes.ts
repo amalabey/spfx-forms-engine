@@ -1,4 +1,5 @@
 import IFieldData from "../model/IFieldData";
+import IItemData from "../model/IItemData";
 
 export enum ActionTypes {
     FIELD_VALUE_CHANGED,
@@ -12,6 +13,7 @@ export enum ActionTypes {
 export type Action = 
     {
         type: ActionTypes.FIELD_VALUE_CHANGED, 
+        item: IItemData,
         payload: IFieldData,
         listName?: string,
         rowIndex?: number

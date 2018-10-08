@@ -64,41 +64,41 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
         return null;
     }
 
-    public createControl(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void) {
+    public createControl(schema: any, index: number, onControlValueChanged: (item: IItemData, newFieldValue: IFieldData) => void) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         const dataBindingProps: IFormDatabindingMetadata = {
             item: this.getItemData(metadata.dataSource, index),
             fieldData: this.getFieldData(metadata.dataSource, metadata.dataMember, index),
             factory: this,
-            onFieldValueChanged: (newFieldValue: IFieldData) => {
-                if (onParentControlValueChanged) {
-                    onParentControlValueChanged(newFieldValue);
+            onFieldValueChanged: (row: IItemData, newFieldValue: IFieldData) => {
+                if (onControlValueChanged) {
+                    onControlValueChanged(row, newFieldValue);
                 }
             }
         };
 
-        return this.getControl(schema, index, onParentControlValueChanged, dataBindingProps);
+        return this.getControl(schema, index, onControlValueChanged, dataBindingProps);
     }
 
-    public createControlWithData(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void,
+    public createControlWithData(schema: any, index: number, onControlValueChanged: (item: IItemData, newFieldValue: IFieldData) => void,
         itemData: IItemData) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         const dataBindingProps: IFormDatabindingMetadata = {
             item: itemData,
             fieldData: metadata.dataMember ? itemData.fields[metadata.dataMember] : null,
             factory: this,
-            onFieldValueChanged: (newFieldValue: IFieldData) => {
-                if (onParentControlValueChanged) {
-                    onParentControlValueChanged(newFieldValue);
+            onFieldValueChanged: (row: IItemData, newFieldValue: IFieldData) => {
+                if (onControlValueChanged) {
+                    onControlValueChanged(row, newFieldValue);
                 }
             }
         };
 
-        return this.getControl(schema, index, onParentControlValueChanged, dataBindingProps);
+        return this.getControl(schema, index, onControlValueChanged, dataBindingProps);
     }
 
     private getControl(schema: any, index: number,
-        onParentControlValueChanged: (newFieldValue: IFieldData) => void,
+        onControlValueChanged: (item: IItemData, newFieldValue: IFieldData) => void,
         dataBindingProps: IFormDatabindingMetadata) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         switch (metadata.type) {
@@ -116,7 +116,7 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
                     {...dataBindingProps}
                     {...metadata}
                     onChanged={(newValue: string) => {
-                        if (onParentControlValueChanged) {
+                        if (onControlValueChanged) {
                             let fieldData = dataBindingProps.fieldData || {
                                 displayName: metadata.dataMember,
                                 internalName: metadata.dataMember,
@@ -125,7 +125,7 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
                                 value: newValue
                             };
                             fieldData.value = newValue;
-                            onParentControlValueChanged(fieldData);
+                            onControlValueChanged(dataBindingProps.item,fieldData);
                         }
                     }}
                 />;
@@ -149,9 +149,9 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
                     editAction={schema.editAction}
                     deleteAction={schema.deleteAction}
                     factory={this}
-                    onFieldValueChanged={(newFieldValue: IFieldData) => {
-                        if (onParentControlValueChanged) {
-                            onParentControlValueChanged(newFieldValue);
+                    onFieldValueChanged={(item: IItemData, newFieldValue: IFieldData) => {
+                        if (onControlValueChanged) {
+                            onControlValueChanged(dataBindingProps.item, newFieldValue);
                         }
                     }}
                     />;

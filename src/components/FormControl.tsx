@@ -1,6 +1,7 @@
 import * as React from "react";
 import IFieldData from "../model/IFieldData";
 import {IFormElementMetadata, IFormDatabindingMetadata} from "./IFormControlFactory";
+import IItemData from "../model/IItemData";
 
 export interface IFormControlProps extends IFormElementMetadata, IFormDatabindingMetadata {
 }
@@ -19,9 +20,10 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
             }
         }
 
-        public onChildFieldValueChanged(newFieldValue: IFieldData): void {
+        public onChildFieldValueChanged(item: IItemData, newFieldValue: IFieldData): void {
+            // Just chain the event to parent
             if(this.props.onFieldValueChanged){
-                this.props.onFieldValueChanged(newFieldValue);
+                this.props.onFieldValueChanged(item, newFieldValue);
             }
         }
 

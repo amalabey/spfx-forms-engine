@@ -136,6 +136,11 @@ export default class FormFieldFactory implements IFormFieldFactory {
                     editAction={schema.editAction}
                     deleteAction={schema.deleteAction}
                     factory={this}
+                    onFieldValueChanged={(newFieldValue: IFieldData) => {
+                        if (onParentControlValueChanged) {
+                            onParentControlValueChanged(newFieldValue);
+                        }
+                    }}
                     />;
 
             default:

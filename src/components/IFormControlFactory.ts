@@ -12,11 +12,11 @@ export interface IFormElementMetadata {
 
 export interface IFormDatabindingMetadata {
     fieldData: IFieldData;
-    factory: IFormFieldFactory;
+    factory: IFormControlFactory;
     onFieldValueChanged: (newFieldValue: IFieldData) => void;
 }
 
-export default interface IFormFieldFactory {
+export default interface IFormControlFactory {
     createControl(schema: any, index: number, onControlValueChanged: (newFieldValue: IFieldData) => void);
     createControlWithData(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void, itemData: IItemData);
 }

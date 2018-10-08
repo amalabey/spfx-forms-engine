@@ -26,7 +26,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts", "typings/index.d.ts"
+    "src/**/*.ts", "typings/index.d.ts", "src/components/OfficeFabricFormControlFactory.tsx", "src/components/UiFabricFormFieldFactory.tsx"
   ],
   "exclude": [
     "node_modules",

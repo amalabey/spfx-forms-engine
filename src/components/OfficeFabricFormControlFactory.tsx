@@ -8,11 +8,11 @@ import IFieldData, { FieldValueType, FieldMode } from "../model/IFieldData";
 import IItemData from "../model/IItemData";
 import IFormData from "../model/IFormData";
 import { strEnum } from "../util";
-import Row from "../components/fields/Row";
-import Column from "../components/fields/Column";
-import IFormFieldFactory, { IFormElementMetadata, IFormDatabindingMetadata } from "./IFormFieldFactory";
-import { databoundFormControl } from "../components/FormControl";
-import DataGrid from "../components/fields/DataGrid";
+import Row from "./fields/Row";
+import Column from "./fields/Column";
+import IFormControlFactory, { IFormElementMetadata, IFormDatabindingMetadata } from "./IFormControlFactory";
+import { databoundFormControl } from "./FormControl";
+import DataGrid from "./fields/DataGrid";
 
 export const FormFieldTypes = strEnum([
     'Row',
@@ -25,7 +25,7 @@ export const FormFieldTypes = strEnum([
 
 export type SupportedFieldType = keyof typeof FormFieldTypes;
 
-export default class FormFieldFactory implements IFormFieldFactory {
+export default class OfficeFabricFormControlFactory implements IFormControlFactory {
     private dataSource: IFormData;
 
     constructor(formDataSource: IFormData) {

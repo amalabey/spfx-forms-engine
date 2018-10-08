@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 
 import IFormData from "../model/IFormData";
 import IFieldData from "../model/IFieldData";
-import IFormFieldFactory from "../services/IFormFieldFactory";
-import UiFabricFormFieldFactory from "../services/UiFabricFormFieldFactory";
+import IFormControlFactory from "./IFormControlFactory";
+import UiFabricFormFieldFactory from "./OfficeFabricFormControlFactory";
 import { IState } from "../store/IState";
 import { changeFieldValue } from "../actions/Actions";
 
@@ -29,7 +29,7 @@ const mapStateToProps = (state: IState) => {
 };
 
 export class Form extends React.Component<IFormProps, IFormState> {
-    private factory: IFormFieldFactory;
+    private factory: IFormControlFactory;
     public childControls: JSX.Element[];
 
     constructor(props){

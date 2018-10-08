@@ -10,7 +10,7 @@ import {
 
 import IItemData from "../../model/IItemData";
 import { IFormElementProps } from "./IFormElementProps";
-import IFormFieldFactory from "../../services/IFormFieldFactory";
+import IFormControlFactory from "../IFormControlFactory";
 import IFieldData from "../../model/IFieldData";
 
 export interface IDataGridProps extends IFormElementProps {
@@ -21,7 +21,7 @@ export interface IDataGridProps extends IFormElementProps {
     newAction: boolean;
     editAction: boolean;
     deleteAction: boolean;
-    factory: IFormFieldFactory;
+    factory: IFormControlFactory;
     onFieldValueChanged?(newFieldValue: IFieldData): void;
 }
 

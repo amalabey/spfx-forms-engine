@@ -10,7 +10,6 @@ import {
 import * as strings from 'DynamicFormWebPartStrings';
 import DynamicForm from './components/DynamicForm';
 import { IDynamicFormProps } from './components/IDynamicFormProps';
-
 export interface IDynamicFormWebPartProps {
   description: string;
 }

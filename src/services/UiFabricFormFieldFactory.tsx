@@ -10,15 +10,17 @@ import IFormData from "../model/IFormData";
 import { strEnum } from "../util";
 import Row from "../components/fields/Row";
 import Column from "../components/fields/Column";
-import IFormFieldFactory, {IFormElementMetadata} from "./IFormFieldFactory";
+import IFormFieldFactory, { IFormElementMetadata, IFormDatabindingMetadata } from "./IFormFieldFactory";
 import { databoundFormControl } from "../components/FormControl";
+import DataGrid from "../components/fields/DataGrid";
 
 export const FormFieldTypes = strEnum([
     'Row',
     'Column',
     'TextFormField',
     'DropDownField',
-    'DateFormField'
+    'DateFormField',
+    'DataGrid'
 ]);
 
 export type SupportedFieldType = keyof typeof FormFieldTypes;
@@ -31,11 +33,11 @@ export default class FormFieldFactory implements IFormFieldFactory {
     }
 
     public getFieldData(dataSource: string, dataMember: string, index: number): IFieldData {
-        if(dataSource && dataMember){
+        if (dataSource && dataMember) {
             const items: IItemData[] = this.dataSource.lists[dataSource];
-            if(items !== null && items.length > 0){
+            if (items !== null && items.length > 0) {
                 const item: IItemData = items[index];
-                if(item) {
+                if (item) {
                     return item.fields[dataMember];
                 }
             }
@@ -44,34 +46,64 @@ export default class FormFieldFactory implements IFormFieldFactory {
         return null;
     }
 
+    public getItems(dataSource: string): IItemData[] {
+        if (dataSource) {
+            return this.dataSource.lists[dataSource];
+        }
+        return null;
+    }
+
     public createControl(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
-        const dataBindingProps = {
-            fieldData: this.getFieldData(metadata.dataSource, metadata.dataMember, index), 
-            factory: this, 
-            onFieldValueChanged: (newFieldValue: IFieldData) => { 
-                if(onParentControlValueChanged){
+        const dataBindingProps: IFormDatabindingMetadata = {
+            fieldData: this.getFieldData(metadata.dataSource, metadata.dataMember, index),
+            factory: this,
+            onFieldValueChanged: (newFieldValue: IFieldData) => {
+                if (onParentControlValueChanged) {
                     onParentControlValueChanged(newFieldValue);
                 }
             }
         };
 
-        switch(metadata.type){
+        return this.getControl(schema, index, onParentControlValueChanged, dataBindingProps);
+    }
+
+    public createControlWithData(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void,
+        itemData: IItemData) {
+        const metadata: IFormElementMetadata = schema as IFormElementMetadata;
+        const dataBindingProps: IFormDatabindingMetadata = {
+            fieldData: metadata.dataMember ? itemData.fields[metadata.dataMember] : null,
+            factory: this,
+            onFieldValueChanged: (newFieldValue: IFieldData) => {
+                if (onParentControlValueChanged) {
+                    onParentControlValueChanged(newFieldValue);
+                }
+            }
+        };
+
+        return this.getControl(schema, index, onParentControlValueChanged, dataBindingProps);
+    }
+
+    private getControl(schema: any, index: number,
+        onParentControlValueChanged: (newFieldValue: IFieldData) => void,
+        dataBindingProps: IFormDatabindingMetadata) {
+        const metadata: IFormElementMetadata = schema as IFormElementMetadata;
+        switch (metadata.type) {
             case FormFieldTypes.Row:
                 const RowElement = databoundFormControl(Row);
-                return <RowElement {...dataBindingProps} {...metadata } />;
-        
+                return <RowElement {...dataBindingProps} {...metadata} />;
+
             case FormFieldTypes.Column:
                 const ColumnElement = databoundFormControl(Column);
-                return <ColumnElement {...dataBindingProps} {...metadata } />;
+                return <ColumnElement {...dataBindingProps} {...metadata} />;
 
             case FormFieldTypes.TextFormField:
                 const TextFieldElement = databoundFormControl(TextField);
-                return <TextFieldElement 
-                    {...dataBindingProps} 
-                    {...metadata }
+                return <TextFieldElement
+                    {...dataBindingProps}
+                    {...metadata}
                     onChanged={(newValue: string) => {
-                        if(onParentControlValueChanged){
+                        if (onParentControlValueChanged) {
                             let fieldData = dataBindingProps.fieldData || {
                                 displayName: metadata.dataMember,
                                 internalName: metadata.dataMember,
@@ -83,24 +115,33 @@ export default class FormFieldFactory implements IFormFieldFactory {
                             onParentControlValueChanged(fieldData);
                         }
                     }}
-                    />;
-            
+                />;
+
             case FormFieldTypes.DropDownField:
                 const DropdownFieldElement = databoundFormControl(Dropdown);
-                return <DropdownFieldElement {...dataBindingProps} {...metadata } />;
-            
+                return <DropdownFieldElement {...dataBindingProps} {...metadata} />;
+
             case FormFieldTypes.DateFormField:
                 const DateFieldElement = databoundFormControl(DatePicker);
-                return <DateFieldElement {...dataBindingProps} {...metadata } firstDayOfWeek={DayOfWeek.Sunday} />;
+                return <DateFieldElement {...dataBindingProps} {...metadata} firstDayOfWeek={DayOfWeek.Sunday} />;
             
+            case FormFieldTypes.DataGrid:
+                const items: IItemData[] = this.getItems(metadata.dataSource);
+                return <DataGrid name={metadata.name} 
+                    key={metadata.name}
+                    dataSource={metadata.dataSource}
+                    columnSchema={metadata.columns}
+                    items={items?items:[]}
+                    newAction={schema.newAction}
+                    editAction={schema.editAction}
+                    deleteAction={schema.deleteAction}
+                    factory={this}
+                    />;
+
             default:
                 const ErrorLabel = databoundFormControl(Label);
-                return <ErrorLabel {...dataBindingProps} {...metadata }>Unsupported form field type</ErrorLabel>;
-
+                return <ErrorLabel {...dataBindingProps} {...metadata}>Unsupported form field type</ErrorLabel>;
         }
     }
 
-    private textFieldChanges(e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, newVal: string): void {
-
-    }
 }

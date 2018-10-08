@@ -290,7 +290,7 @@
                 ]
             },
             {
-                "type": "office-ui-fabric-react/lib/DetailsList",
+                "type": "DataGrid",
                 "name": "resources",
 				"dataSource": "Scheduling Request Resources",
                 "newAction": true,
@@ -300,6 +300,7 @@
                     {
                         "type": "DropDownField",
                         "name": "department",
+						"displayName": "Department",
                         "items":["App Dev", "D & A", "I & D"],
                         "placeholder": "Select Department",
                         "required": true
@@ -307,8 +308,8 @@
                     {
                         "type": "DropDownField",
                         "name": "role",
+						"displayName": "Role",
                         "items": [],
-                        "dataSource": "Scheduling Request Resources",
                         "dataMember": "Role",
                         "placeholder": "Select Role",
                         "required": true
@@ -316,7 +317,7 @@
                     {
                         "type": "TextFormField",
                         "name": "numberOfResources",
-                        "dataSource": "Scheduling Request Resources",
+						"displayName": "Number of Resources",
                         "dataMember": "Number Of Resources",
                         "placeholder": "Number of Resources",
                         "required": true
@@ -324,7 +325,7 @@
                     {
                         "type": "TextFormField",
                         "name": "resourceRate",
-                        "dataSource": "Scheduling Request Resources",
+						"displayName": "Rate",
                         "dataMember": "Rate",
                         "placeholder": "Enter the rate",
                         "required": true

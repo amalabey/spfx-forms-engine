@@ -289,46 +289,61 @@
                     }
                 ]
             },
-            {
-                "type": "DataGrid",
-                "name": "resources",
-				"dataSource": "Scheduling Request Resources",
-                "newAction": true,
-                "editAction": true,
-                "deleteAction": true,
-                "columns": [
+			{
+                "type":"Row",
+                "name": "row12",
+                "childControls":[
                     {
-                        "type": "DropDownField",
-                        "name": "department",
-						"displayName": "Department",
-                        "items":["App Dev", "D & A", "I & D"],
-                        "placeholder": "Select Department",
-                        "required": true
-                    },
-                    {
-                        "type": "DropDownField",
-                        "name": "role",
-						"displayName": "Role",
-                        "items": [],
-                        "dataMember": "Role",
-                        "placeholder": "Select Role",
-                        "required": true
-                    },
-                    {
-                        "type": "TextFormField",
-                        "name": "numberOfResources",
-						"displayName": "Number of Resources",
-                        "dataMember": "Number Of Resources",
-                        "placeholder": "Number of Resources",
-                        "required": true
-                    },
-                    {
-                        "type": "TextFormField",
-                        "name": "resourceRate",
-						"displayName": "Rate",
-                        "dataMember": "Rate",
-                        "placeholder": "Enter the rate",
-                        "required": true
+                        "type":"Column",
+                        "name": "column12",
+                        "large": 12,
+                        "medium": 12,
+                        "small": 12,
+                        "childControls": [
+											{
+								"type": "DataGrid",
+								"name": "resources",
+								"dataSource": "Scheduling Request Resources",
+								"newAction": true,
+								"editAction": true,
+								"deleteAction": true,
+								"columns": [
+									{
+										"type": "DropDownField",
+										"name": "department",
+										"displayName": "Department",
+										"items":["App Dev", "D & A", "I & D"],
+										"placeholder": "Select Department",
+										"required": true
+									},
+									{
+										"type": "DropDownField",
+										"name": "role",
+										"displayName": "Role",
+										"items": [],
+										"dataMember": "Role",
+										"placeholder": "Select Role",
+										"required": true
+									},
+									{
+										"type": "TextFormField",
+										"name": "numberOfResources",
+										"displayName": "Number of Resources",
+										"dataMember": "Number Of Resources",
+										"placeholder": "Number of Resources",
+										"required": true
+									},
+									{
+										"type": "TextFormField",
+										"name": "resourceRate",
+										"displayName": "Rate",
+										"dataMember": "Rate",
+										"placeholder": "Enter the rate",
+										"required": true
+									}
+								]
+							}
+                        ] 
                     }
                 ]
             }

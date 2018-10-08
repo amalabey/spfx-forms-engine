@@ -25,6 +25,32 @@ export const mockFormData = {
             value: "Readify PTY LTD"
           }
         }
+      }],
+      "Scheduling Request Resources":[{
+        mode: ItemMode.NEW,
+        fields:{
+          department: {
+            displayName: "Department",
+            internalName: "department",
+            mode: FieldMode.NEW,
+            type: "Text",
+            value: "Data Anlaytics"
+          },
+          role: {
+            displayName: "Role",
+            internalName: "role",
+            mode: FieldMode.NEW,
+            type: "Text",
+            value: "Senior Consultant"
+          },
+          numberOfResources: {
+            displayName: "Number Of Resources",
+            internalName: "numberOfResources",
+            mode: FieldMode.NEW,
+            type: "Text",
+            value: "10"
+          }
+        }
       }]
     }
   } as IFormData;

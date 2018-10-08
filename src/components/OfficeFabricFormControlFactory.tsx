@@ -33,13 +33,24 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
     }
 
     public getFieldData(dataSource: string, dataMember: string, index: number): IFieldData {
-        if (dataSource && dataMember) {
+        if (dataSource && dataMember && index >= 0) {
             const items: IItemData[] = this.dataSource.lists[dataSource];
             if (items !== null && items.length > 0) {
                 const item: IItemData = items[index];
                 if (item) {
                     return item.fields[dataMember];
                 }
+            }
+        }
+
+        return null;
+    }
+
+    public getItemData(dataSource: string, index: number): IItemData {
+        if (dataSource && index >= 0) {
+            const items: IItemData[] = this.dataSource.lists[dataSource];
+            if (items !== null && items.length > 0) {
+                return items[index];
             }
         }
 
@@ -56,6 +67,7 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
     public createControl(schema: any, index: number, onParentControlValueChanged: (newFieldValue: IFieldData) => void) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         const dataBindingProps: IFormDatabindingMetadata = {
+            item: this.getItemData(metadata.dataSource, index),
             fieldData: this.getFieldData(metadata.dataSource, metadata.dataMember, index),
             factory: this,
             onFieldValueChanged: (newFieldValue: IFieldData) => {
@@ -72,6 +84,7 @@ export default class OfficeFabricFormControlFactory implements IFormControlFacto
         itemData: IItemData) {
         const metadata: IFormElementMetadata = schema as IFormElementMetadata;
         const dataBindingProps: IFormDatabindingMetadata = {
+            item: itemData,
             fieldData: metadata.dataMember ? itemData.fields[metadata.dataMember] : null,
             factory: this,
             onFieldValueChanged: (newFieldValue: IFieldData) => {

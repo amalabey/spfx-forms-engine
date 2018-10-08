@@ -1,12 +1,8 @@
 import * as React from "react";
-import IFieldData, { FieldValueType } from "../model/IFieldData";
-import IFormFieldFactory, {IFormElementMetadata} from "./IFormControlFactory";
-import { ThemeSettingName } from "@uifabric/styling/lib";
+import IFieldData from "../model/IFieldData";
+import {IFormElementMetadata, IFormDatabindingMetadata} from "./IFormControlFactory";
 
-export interface IFormControlProps extends IFormElementMetadata {
-    fieldData: IFieldData;
-    factory: IFormFieldFactory;
-    onFieldValueChanged(newFieldValue: IFieldData): void;
+export interface IFormControlProps extends IFormElementMetadata, IFormDatabindingMetadata {
 }
 
 export const databoundFormControl = <P extends object>(Control: React.ComponentType<P>) =>
@@ -47,6 +43,7 @@ export const databoundFormControl = <P extends object>(Control: React.ComponentT
                 dataSource,
                 dataMember,
                 childControls,
+                item,
                 fieldData, 
                 factory,
                 onFieldValueChanged, 

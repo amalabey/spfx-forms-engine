@@ -11,6 +11,7 @@ export interface IFormElementMetadata {
 }
 
 export interface IFormDatabindingMetadata {
+    item: IItemData;
     fieldData: IFieldData;
     factory: IFormControlFactory;
     onFieldValueChanged: (newFieldValue: IFieldData) => void;
